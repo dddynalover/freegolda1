@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт с кнопками</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #d7f1b5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .container {
+            background: rgb(250, 153, 218);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        /* Стили для кнопок с переходами */
+        .btn-js {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: block; /* Чтобы кнопки были друг под другом */
+            width: 80%; /* Ширина кнопок */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-js:hover {
+            background: #8e44ad;
+            transform: translateY(-3px);
+        }
+        
+        /* Разные цвета для кнопок */
+        .btn-bonus {
+            background: #e74c3c;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .btn-bonus:hover {
+            background: #c0392b;
+        }
+        
+        .btn-confirm {
+            background: #3498db;
+        }
+        
+        .btn-confirm:hover {
+            background: #2980b9;
+        }
+        
+        .btn-delay {
+            background: #2ecc71;
+        }
+        
+        .btn-delay:hover {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <!-- Первый блок -->
+    <div class="container">
+        <h1>Ура! Забирать бонусы тут! 🎉</h1>
+        <p>пупупу серега пидор.</p>
+        <p>эрнесту саламыч!</p>
+        <button onclick="showMessage()">Нажми на меня!</button>
+    </div>
+
+    <!-- Второй блок с кнопками-ссылками -->
+    <div class="container">
+        <h1>Мои крутые кнопки! 🚀</h1>
+        
+        <!-- Кнопка с переходом по клику -->
+        <button class="btn-js btn-bonus" onclick="goToBonus()">
+            🤑 ЗАБРАТЬ БОНУС 🤑
+        </button>
+        
+        <!-- Кнопка с подтверждением -->
+        <button class="btn-js btn-confirm" onclick="goWithConfirmation()">
+            📺 Перейти на YouTube (с подтверждением)
+        </button>
+        
+        <!-- Кнопка с задержкой -->
+        <button class="btn-js btn-delay" onclick="goWithDelay()">
+            ⏱️ Перейти через 3 секунды
+        </button>
+    </div>
+
+    <script>
+        // Функция для всплывающего сообщения
+        function showMessage() {
+            alert('Поздравляю! Ты только что запустил JavaScript код! 🚀');
+        }
+        
+        // Функция для перехода на бонус
+        function goToBonus() {
+            window.location.href = "https://zrf.pro/228668";
+        }
+        
+        // Функция с подтверждением
+        function goWithConfirmation() {
+            const userConfirmed = confirm("Вы уверены, что хотите перейти на YouTube?");
+            if (userConfirmed) {
+                window.open("https://youtube.com", "_blank");
+            }
+        }
+        
+        // Функция с задержкой
+        function goWithDelay() {
+            // Меняем текст кнопки
+            const button = event.target;
+            button.textContent = "⏱️ Переход через 3...";
+            
+            setTimeout(() => {
+                button.textContent = "⏱️ Переход через 2...";
+            }, 1000);
+            
+            setTimeout(() => {
+                button.textContent = "⏱️ Переход через 1...";
+            }, 2000);
+            
+            setTimeout(() => {
+                window.location.href = "https://github.com";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
